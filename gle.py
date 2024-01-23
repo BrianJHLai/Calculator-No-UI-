@@ -1,4 +1,5 @@
 from clean import clean
+import sys
 
 #Comparison tuples
 greater_than = ("9 > 8", "9 > 7", "9 > 6", "9 > 5", "9 > 4", "9 > 3", "9 > 2", 
@@ -45,8 +46,16 @@ symbols = ("+", "-", "*", "/", "^", "(", ")", ".", "=", ">", "<", "c")
 
 #Given two parameters, n1 and n2, return true if n1 is equal to n2
 def is_equal(n1, n2):
-    n1 = clean(n1)
-    n2 = clean(n2)
+    try:
+        n1[0]
+        n2[0]
+    except IndexError:
+        print("Won't be able to do any calculations with an empty string!")
+        print("Terminating program")
+        sys.exit(1)
+        
+    n1 = clean(n1)#
+    n2 = clean(n2)#
     
     #Compare lengths; if length isn't equal, immediately return false
     if (str(len(n1)) + " = " + str(len(n2)) not in equals):
@@ -64,8 +73,16 @@ def is_equal(n1, n2):
 
 #Given two numbers, n1 and n2, return true if n1 is greater than n2
 def is_greater(n1, n2):
-    n1 = clean(n1)
-    n2 = clean(n2)
+    try:
+        n1[0]
+        n2[0]
+    except IndexError:
+        print("Won't be able to do any calculations with an empty string!")
+        print("Terminating program")
+        sys.exit(1)
+        
+    n1 = clean(n1)#
+    n2 = clean(n2)#
     
     #Compare signs
     #n1 is positive/0, n2 is negative
@@ -144,8 +161,16 @@ def is_greater(n1, n2):
 
 #Given two numbers, n1 and n2, return true if n1 is less than n2
 def is_less(n1, n2):
-    n1 = clean(n1)
-    n2 = clean(n2)
+    try:
+        n1[0]
+        n2[0]
+    except IndexError:
+        print("Won't be able to do any calculations with an empty string!")
+        print("Terminating program")
+        sys.exit(1)
+        
+    n1 = clean(n1)#
+    n2 = clean(n2)#
     
     #Compare signs
     #n1 is positive/0, n2 is negative
@@ -219,62 +244,3 @@ def is_less(n1, n2):
     #n2 has more digits when both are negative, meaning n2 is lesser than n1
     else:
         return False
-
-################################################################################
-#Tests
-
-print("Equals test 1:", is_equal("0", "0")) #True
-print("Equals test 2:", is_equal("0000", "0")) #True
-print("Equals test 3:", is_equal("10", "0")) #False
-print("Equals test 4:", is_equal("1023456", "1023457")) #False
-print("Equals test 5:", is_equal("-1023456", "-1023456")) #True
-print("Equals test 6:", is_equal("-1023456", "1023456")) #False
-print("Equals test 7:", is_equal("0.9", "0.9")) #True
-print("Equals test 8:", is_equal(".9", "0.9")) #True
-print("Equals test 9:", is_equal("0.9", "0.90")) #True
-print("Equals test 10:", is_equal("-0.9", "-0.9")) #True
-print("Equals test 11:", is_equal("0.9", "-0.9")) #False
-print("Equals test 12:", is_equal("+", "+")) #True
-print("Equals test 13:", is_equal("+", "-")) #False
-print("Equals test 14:", is_equal("(", "(")) #True
-print("Equals test 15:", is_equal("-9", "-")) #False
-print("Equals test 16:", is_equal("()", "()")) #True
-print("Equals test 16:", is_equal("c", "c")) #True
-
-#print("Equals test Empty:", is_equal("-9", "")) #False
-
-print("")
-
-print("Greater test 1:", is_greater("2", "1")) #True
-print("Greater test 2:", is_greater("1", "2")) #False
-print("Greater test 3:", is_greater("2", "2")) #False
-print("Greater test 4:", is_greater("-2", "-1")) #False
-print("Greater test 5:", is_greater("-1", "-2")) #True
-print("Greater test 6:", is_greater("-2", "-2")) #False
-print("Greater test 7:", is_greater("2", "-2")) #True
-print("Greater test 8:", is_greater("-2", "2")) #False
-print("Greater test 9:", is_greater("2.9", "1")) #True
-print("Greater test 10:", is_greater(".2", "1.")) #False
-print("Greater test 11:", is_greater("500.0", "500")) #False
-print("Greater test 12:", is_greater("500.9", "500")) #True
-print("Greater test 13:", is_greater("5000", "500")) #True
-print("Greater test 14:", is_greater("5009.", "500")) #True
-print("Greater test 15:", is_greater("-500", "-500.0")) #False
-print("Greater test 16:", is_greater("-500", "-500.9")) #True
-print("Greater test 17:", is_greater("-500", "-5000")) #True
-print("Greater test 18:", is_greater("-500", "-5009.")) #True
-print("Greater test 19:", is_greater("5", "1000")) #False
-print("Greater test 20:", is_greater("509.1", "509.0")) #True
-
-print("")
-
-print("Lesser test 1:", is_less("1", "2")) #True
-print("Lesser test 2:", is_less("200", "100.")) #False
-print("Lesser test 3:", is_less("-1", "2.")) #True
-print("Lesser test 4:", is_less("100", "-2.")) #False
-print("Lesser test 5:", is_less("-3.58", "-3.57")) #True
-print("Lesser test 6:", is_less("101", "100")) #False
-print("Lesser test 7:", is_less("100000", "100100")) #True
-print("Lesser test 8:", is_less("100", "10000")) #True
-print("Lesser test 9:", is_less("-10000", "-100")) #True
-print("Lesser test 10:", is_less("100", "100")) #False
