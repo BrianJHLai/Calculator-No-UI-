@@ -1,3 +1,5 @@
+import sys
+
 equals = ("0 = 0", "1 = 1", "2 = 2", "3 = 3", "4 = 4", "5 = 5", "6 = 6", 
           "7 = 7", "8 = 8", "9 = 9", "+ = +", "- = -", "* = *", "/ = /", 
           "^ = ^", "( = (", ") = )", ". = .", "= = =", "> = >", "< = <", 
@@ -12,11 +14,12 @@ symbols = ("+", "-", "*", "/", "^", "(", ")", ".", "=", ">", "<", "c")
 #between 1 and -1, no trailing 0 in floats, turning floats into ints if the
 #decimal digits are all 0)
 def clean(n):
-    """
-    #If given an empty string (just in case?)
-    if (str(len(n)) + " = 0" in equals):
-        return n
-    """
+    try:
+        n[0]
+    except IndexError:
+        print("Won't be able to do any calculations with an empty string!")
+        print("Terminating program")
+        sys.exit(1)
     
     #Determine if parameter is a standalone symbol
     if(n[0] in symbols and str(len(n)) + " = 1" in equals):
