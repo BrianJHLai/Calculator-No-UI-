@@ -39,8 +39,8 @@ def add(n1, n2):
         print("Terminating program")
         sys.exit(1)
         
-    n1 = clean(n1)#
-    n2 = clean(n2)#
+    n1 = clean(n1) #In place until calculate() is implemented
+    n2 = clean(n2) #In place until calculate() is implemented
     
     #If n1 or n2 is negative
     if (is_equal("-", n1[0]) or is_equal("-", n2[0])):
@@ -64,24 +64,24 @@ def add(n1, n2):
         length = str(len(n1))
     
     #Add digits (Going from right to left)
-    r = build_sum(n1_char, n2_char, 0, int(length), carry_over)
-    carry_over = r.pop()
-    s = "".join(r) + s
+    x = build_sum(n1_char, n2_char, 0, int(length), carry_over)
+    carry_over = x.pop()
+    s = "".join(x) + s
 
     #n1 and n2 had an equal number of digits
     if (is_equal(str(len(n1)), str(len(n2)))):
         return s
     #n1 has more digits than n2, use the remaining digits to finish making s
     elif (is_greater(str(len(n1)), str(len(n2)))):
-        r = build_sum(n1_char, n2_char, int(length), len(n1), carry_over)
-        r.pop()
-        s = "".join(r) + s        
+        x = build_sum(n1_char, n2_char, int(length), len(n1), carry_over)
+        x.pop()
+        s = "".join(x) + s        
         return s
     #n2 has more digits than n1, use the remaining digits to finish making s
     else:
-        r = build_sum(n1_char, n2_char, int(length), len(n2), carry_over)
-        r.pop()
-        s = "".join(r) + s          
+        x = build_sum(n1_char, n2_char, int(length), len(n2), carry_over)
+        x.pop()
+        s = "".join(x) + s          
         return s
 
 
@@ -115,7 +115,7 @@ def build_sum(n1c, n2c, l1, l2, co):
         else:
             next_digit = add_sum[int(n1c.pop())][int(n2c.pop())]
             
-        #If the previous digits added up to 10 or more, add 1 to next_digit
+        #Add 1 to next_digit if carry_over is True
         if (co):
             next_digit = add(next_digit, "1")
             #Check if adding 1 to next_digit resulted in 10 or more
@@ -126,6 +126,7 @@ def build_sum(n1c, n2c, l1, l2, co):
                         next_digit = next_digit[-1]
             else:
                 co = False
+        
         #Check if next_digit is equal to 10 or more
         if (is_equal("10", next_digit) or is_greater(next_digit, "10")):
             #Carry over if n1 or n2 still has more digits to add
@@ -133,6 +134,7 @@ def build_sum(n1c, n2c, l1, l2, co):
                 or not is_equal("0", str(len(n2c)))):
                 next_digit = next_digit[1]
                 co = True
+        
         s.insert(0, next_digit)
     
     s.append(co)    
