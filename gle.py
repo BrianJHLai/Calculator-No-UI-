@@ -54,8 +54,8 @@ def is_equal(n1, n2):
         print("Terminating program")
         sys.exit(1)
         
-    n1 = clean(n1)#
-    n2 = clean(n2)#
+    n1 = clean(n1) #In place until calculate() is implemented
+    n2 = clean(n2) #In place until calculate() is implemented
     
     #Compare lengths; if length isn't equal, immediately return false
     if (str(len(n1)) + " = " + str(len(n2)) not in equals):
@@ -81,8 +81,8 @@ def is_greater(n1, n2):
         print("Terminating program")
         sys.exit(1)
         
-    n1 = clean(n1)#
-    n2 = clean(n2)#
+    n1 = clean(n1) #In place until calculate() is implemented
+    n2 = clean(n2) #In place until calculate() is implemented
     
     #Compare signs
     #n1 is positive/0, n2 is negative
@@ -169,8 +169,8 @@ def is_less(n1, n2):
         print("Terminating program")
         sys.exit(1)
         
-    n1 = clean(n1)#
-    n2 = clean(n2)#
+    n1 = clean(n1) #In place until calculate() is implemented
+    n2 = clean(n2) #In place until calculate() is implemented
     
     #Compare signs
     #n1 is positive/0, n2 is negative

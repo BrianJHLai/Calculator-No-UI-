@@ -3,9 +3,12 @@ from clean import clean
 from operations import abv
 from add import add
 from sub import sub
+from mult import mult
+from exp import exp
+from div import div
 
 ################################################################################
-#Tests
+#Tests (The comment after each test is the correct result)
 #Clean
 """
 print("Clean test 1:", clean("000")) #0
@@ -76,8 +79,17 @@ print("Lesser test 9:", is_less("-10000", "-100")) #True
 print("Lesser test 10:", is_less("100", "100")) #False
 #print("Lesser test Empty:", is_less("-9", "")) #Exception and termination
 """
+#Absolute Value
+"""
+print("AbsV test 1:", abv("00")) #0
+print("AbsV test 2:", abv("10")) #10
+print("AbsV test 3:", abv("-10")) #10
+print("AbsV test 4:", abv("-1.4")) #1.4
+print("AbsV test 5:", abv("-.4")) #0.4
+print("AbsV test Empty:", abv("")) #Exception and termination
+"""
 #Addition, Subtraction
-
+"""
 print("Add test 1:", add("10", "2")) #12
 print("Add test 2:", add("1", "23")) #24
 print("Add test 3:", add("543", "321")) #864
@@ -121,13 +133,39 @@ print("")
 print("")
 
 #print("Decimal Subtraction test 1:", add("10.5", "2.5")) #
+"""
+#Multiplication, Division, Exponents
 
-#Absolute Value
-"""
-print("AbsV test 1:", abv("00")) #0
-print("AbsV test 2:", abv("10")) #10
-print("AbsV test 3:", abv("-10")) #10
-print("AbsV test 4:", abv("-1.4")) #1.4
-print("AbsV test 5:", abv("-.4")) #0.4
-print("AbsV test Empty:", abv("")) #Exception and termination
-"""
+print("Multiply test 1:", mult("3", "4")) #12
+print("Multiply test 2:", mult("24", "16")) #384
+print("Multiply test 3:", mult("456", "3")) #1,368
+print("Multiply test 4:", mult("6", "789")) #4,734
+print("Multiply test 5:", mult("134", "0")) #0
+print("Multiply test 6:", mult("0", "0")) #0
+print("Multiply test 7:", mult("0", "7")) #0
+print("Multiply test 8:", mult("26436", "36690")) #969,936,840
+#print("Multiply test Empty:", mult("", "15")) #Exception and termination
+
+print("")
+
+print("Divide test 1:", div("10", "2")) #5
+print("Divide test 2:", div("2", "5")) #0.4
+print("Divide test 3:", div("0", "6")) #0
+print("Divide test 4:", div("10", "3")) #3.3333333333
+print("Divide test 5:", div("10", "7")) #1.4285714285
+print("Divide test 6:", div("34467", "23")) #1,498.5652173913
+print("Divide test 7:", div("54", "174385")) #0.0003096596
+#print("Divide test Zero:", div("7", "0")) #Exception and termination
+#print("Divide test Empty:", div("24", "")) #Exception and termination
+
+print("")
+
+print("Exponent test 1:", exp("4", "10")) #1,048,576
+print("Exponent test 2:", exp("8", "1")) #8
+print("Exponent test 3:", exp("12", "0")) #1
+print("Exponent test 4:", exp("12", "4")) #20,736
+print("Exponent test 5:", exp("0", "145")) #0
+print("Exponent test 6:", exp("0", "0")) #1
+print("Exponent test 7:", exp("125", "12")) #14,551,915,228,366,851,806,640,625
+#print("Exponent test Empty:", exp("", "6")) #Exception and termination
+
