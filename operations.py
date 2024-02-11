@@ -16,8 +16,6 @@ def abv(n):
         print("Terminating program")
         sys.exit(1)
     
-    n = clean(n) #In place until calculate() is implemented
-    
     if (is_equal("-", n[0])):
         return n.replace("-", "")
     else:

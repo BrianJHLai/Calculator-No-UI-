@@ -38,9 +38,6 @@ def add(n1, n2):
         print("Cannot perform addition with only 1 or less numbers!")
         print("Terminating program")
         sys.exit(1)
-        
-    n1 = clean(n1) #In place until calculate() is implemented
-    n2 = clean(n2) #In place until calculate() is implemented
     
     #If n1 or n2 is negative
     if (is_equal("-", n1[0]) or is_equal("-", n2[0])):

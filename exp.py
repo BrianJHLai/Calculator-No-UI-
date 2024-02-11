@@ -15,9 +15,6 @@ def exp(n1, n2):
         print("Cannot calculate exponent with only 1 or less numbers!")
         print("Terminating program")
         sys.exit(1)
-        
-    n1 = clean(n1) #In place until calculate() is implemented
-    n2 = clean(n2) #In place until calculate() is implemented
     
     #If n2, the power, is 0, return 1
     if (is_equal(n2, "0")):

@@ -37,11 +37,12 @@ less_than_neg = ("9 < 8", "9 < 7", "9 < 6", "9 < 5", "9 < 4", "9 < 3", "9 < 2",
 
 equals = ("0 = 0", "1 = 1", "2 = 2", "3 = 3", "4 = 4", "5 = 5", "6 = 6", 
           "7 = 7", "8 = 8", "9 = 9", "+ = +", "- = -", "* = *", "/ = /", 
-          "^ = ^", "( = (", ") = )", ". = .", "= = =", "> = >", "< = <", 
-          "c = c")
+          "^ = ^", "( = (", ") = )", "| = |", ". = .", "= = =", "> = >", 
+          "< = <", "c = c", "C = C", "X = X", "  =  ")
 
 numbers = ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
-symbols = ("+", "-", "*", "/", "^", "(", ")", ".", "=", ">", "<", "c")
+symbols = ("+", "-", "*", "/", "^", "(", ")", "|", ".", "=", ">", "<", 
+           "c", "C", "X")
 
 
 #Given two parameters, n1 and n2, return true if n1 is equal to n2
@@ -53,9 +54,6 @@ def is_equal(n1, n2):
         print("Won't be able to do any calculations with an empty string!")
         print("Terminating program")
         sys.exit(1)
-        
-    n1 = clean(n1) #In place until calculate() is implemented
-    n2 = clean(n2) #In place until calculate() is implemented
     
     #Compare lengths; if length isn't equal, immediately return false
     if (str(len(n1)) + " = " + str(len(n2)) not in equals):
@@ -80,9 +78,6 @@ def is_greater(n1, n2):
         print("Won't be able to do any calculations with an empty string!")
         print("Terminating program")
         sys.exit(1)
-        
-    n1 = clean(n1) #In place until calculate() is implemented
-    n2 = clean(n2) #In place until calculate() is implemented
     
     #Compare signs
     #n1 is positive/0, n2 is negative
@@ -168,9 +163,6 @@ def is_less(n1, n2):
         print("Won't be able to do any calculations with an empty string!")
         print("Terminating program")
         sys.exit(1)
-        
-    n1 = clean(n1) #In place until calculate() is implemented
-    n2 = clean(n2) #In place until calculate() is implemented
     
     #Compare signs
     #n1 is positive/0, n2 is negative
