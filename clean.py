@@ -6,7 +6,8 @@ equals = ("0 = 0", "1 = 1", "2 = 2", "3 = 3", "4 = 4", "5 = 5", "6 = 6",
           "c = c")
 
 numbers = ("0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
-symbols = ("+", "-", "*", "/", "^", "(", ")", ".", "=", ">", "<", "c")
+symbols = ("+", "-", "*", "/", "^", "(", ")", "|", ".", "=", ">", "<", 
+           "c", "C", "X")
 
 
 #Helper function to make it easier to check number parameters by having every
@@ -21,11 +22,11 @@ def clean(n):
         print("Terminating program")
         sys.exit(1)
     
-    #Determine if parameter is a standalone symbol
+    #Determine if parameter is a standalone symbol or space
     if(n[0] in symbols and str(len(n)) + " = 1" in equals):
-        return n    
+        return n
     
-    #Check if n is neither an int nor a float; if nso, return n without change
+    #Check if n is neither an int nor a float; if so, return n without change
     has_deci = False
     if (n[0] + " = -" not in equals and n[0] + " = ." not in equals and 
         n[0] in symbols):

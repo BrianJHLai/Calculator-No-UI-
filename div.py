@@ -15,9 +15,6 @@ def div(n1, n2):
         print("Cannot perform division with only 1 or less numbers!")
         print("Terminating program")
         sys.exit(1)
-        
-    n1 = clean(n1) #In place until calculate() is implemented
-    n2 = clean(n2) #In place until calculate() is implemented
     
     #Check if n2, the divisor, is 0
     if (is_equal("0", n2)):
